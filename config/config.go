@@ -1,4 +1,4 @@
-package sys
+package config
 
 import (
 	"fmt"
@@ -7,12 +7,13 @@ import (
 )
 
 type Config struct {
-	Connect string           `yaml:"connect"`
-	Blocks  map[string]Block `yaml:"blocks"`
+	Connect string           `yaml:"CONNECT"`
+	Blocks  map[string]Block `yaml:"BLOCKS"`
+	Influx  Influx           `yaml:"INFLUX"`
 }
 
 type Block struct {
-	Name string `yaml:"name"`
+	Name string `yaml:"NAME"`
 }
 
 func GetConfig(filename string) (*Config, error) {
