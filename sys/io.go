@@ -83,11 +83,11 @@ func (s *Stats) Diff(s2 *Stats) *Stats {
 	return diff
 }
 
-func GetStats(connect, block string) *Stats {
+func GetStats(connect, block string) (*Stats, error) {
 	var commandString = fmt.Sprintf("%s cat /sys/block/%s/stat", connect, block)
 	out, err := exec.Command("bash", "-c", commandString).Output()
 	if err != nil {
-		log.Fatal(err)
+		return nil, fmt.Errorf("fatal error exectuing get stats command; %w", err)
 	}
 	parts := strings.Fields(string(out))
 	var stats = new(Stats)
@@ -108,5 +108,5 @@ func GetStats(connect, block string) *Stats {
 	stats.DiscardTime, _ = strconv.ParseInt(parts[14], 10, 64)
 	stats.FlushesCompleted, _ = strconv.ParseInt(parts[15], 10, 64)
 	stats.FlushTime, _ = strconv.ParseInt(parts[16], 10, 64)
-	return stats
+	return stats, nil
 }

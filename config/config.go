@@ -7,9 +7,9 @@ import (
 )
 
 type Config struct {
-	Connect string           `yaml:"CONNECT"`
-	Blocks  map[string]Block `yaml:"BLOCKS"`
-	Influx  Influx           `yaml:"INFLUX"`
+	Connect string  `yaml:"CONNECT"`
+	Blocks  []Block `yaml:"BLOCKS"`
+	Influx  Influx  `yaml:"INFLUX"`
 }
 
 type Block struct {
