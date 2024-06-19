@@ -52,8 +52,10 @@ func main() {
 						"WeightedIOTime":           diff.WeightedIOTime,
 						"ReadsCompletedPerSecond":  float32(diff.ReadsCompleted) / 60.0,
 						"ReadTimePercent":          float32(diff.ReadTime) / 60000.0,
+						"SectorsReadPerSecond":     float32(diff.SectorsRead) / 60.0,
 						"WritesCompletedPerSecond": float32(diff.WritesCompleted) / 60.0,
 						"WriteTimePercent":         float32(diff.WriteTime) / 60000.0,
+						"SectorsWrittenPerSecond":  float32(diff.SectorsWritten) / 60.0,
 						"IOTimePercent":            float32(diff.IOTime) / 60000.0,
 						"WeightedIOTimePercent":    float32(diff.WeightedIOTime) / 60000.0,
 					})
