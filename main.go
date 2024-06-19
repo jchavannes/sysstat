@@ -11,7 +11,7 @@ import (
 
 func main() {
 	log.SetOutput(os.Stdout)
-	cfg, err := config.GetConfig("config.yaml")
+	cfg, err := config.GetConfig(".config/sysstat/config.yaml")
 	if err != nil {
 		log.Fatalf("error loading config; %v", err)
 	}
